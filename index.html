@@ -25,16 +25,22 @@
         </header>
         <main class="container text-center my-auto">
             <h1>Magic 8 Ball App</h1>
-            <p id="response-text">Ask A Question...</p>
-            <img src="https://picsum.photos/seed/picsum/500/300" alt="" id="response-img" class="img img-fluid">
-            <button onclick="shakeMagic8Ball()" class="btn btn-primary"> Shake the Magic 8 Ball!</button>
         </main>
+        <div class="magic-8-ball-container">
+            <div class="magic-8-ball">
+                <div class="ball-shine"></div>
+                <div class="answer-window">
+                    <div class="answer-display" id="response-text">Ask A Question...</div>
+                </div>
+            </div>
+        </div>
+        <button onclick="shakeMagic8Ball()" class="shake-button">Shake the Magic 8 Ball!</button>
         <footer class="container text-center my-auto">
             <p>&copy;2025 Justin Goodman</p>
         </footer >
         <!-- Bootstrap JavaScript Libraries -->
        
-        <script src="8ball.js"></script>
+        <script src="app.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

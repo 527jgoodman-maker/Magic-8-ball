@@ -4,8 +4,6 @@ function shakeMagic8Ball () {
     // If the user clicks Cancel
     document.getElementById('response-text').innerText =
       'Please ask a question!'
-    document.getElementById('response-text').classList = 'lead text-warning'
-    document.getElementById('response-image').src = 'default-image.jpg'
     return
   }
 
@@ -16,47 +14,44 @@ function shakeMagic8Ball () {
   }
 
   const randomNumber = Math.floor(Math.random() * 8)
-  let answer, image, color
+    let answer, color
+  
+    // Add shake animation
+    const ball = document.querySelector('.magic-8-ball')
+    ball.classList.remove('shake')
+    setTimeout(() => ball.classList.add('shake'), 10)
 
   switch (randomNumber) {
     case 0:
       answer = 'Yes'
-      image = 'yes-image.jpg'
       color = 'text-success'
       break
     case 1:
-      answer = 'No'
-      image = 'no-image.jpg'
+      answer = 'No, but nice try!',
       color = 'text-danger'
       break
     case 2:
       answer = 'Maybe'
-      image = 'maybe-image.jpg'
       color = 'text-warning'
       break
     case 3:
       answer = 'Ask again later'
-      image = 'later-image.jpg'
       color = 'text-secondary'
       break
     case 4:
-      answer = 'Cannot predict now'
-      image = 'cannot-predict-image.jpg'
+      answer = 'Cannot predict now, Im buffering.',
       color = 'text-muted'
       break
     case 5:
       answer = "Don't count on it"
-      image = 'dont-count-on-it-image.jpg'
       color = 'text-danger'
       break
     case 6:
-      answer = 'Most likely'
-      image = 'most-likely-image.jpg'
+      answer = 'You may rely on it, but double-check.',
       color = 'text-success'
       break
     case 7:
-      answer = 'Outlook not so good'
-      image = 'outlook-not-good-image.jpg'
+      answer = 'Outlook not so good, but I’m just a ball.',
       color = 'text-danger'
       break
     default:
@@ -65,6 +60,9 @@ function shakeMagic8Ball () {
 
   const responseText = document.getElementById('response-text')
   responseText.innerText = answer
-  responseText.classList = `display-4 ${color}`
-  document.getElementById('response-image').src = image
+    responseText.classList = 'answer-display fade-in'
 }
+    // Reset animation
+    setTimeout(() => {
+      responseText.classList.remove('fade-in')
+    }, 500)
